@@ -28,6 +28,12 @@ platform **Legato** toolchain + installation command line.
 [here](https://github.com/startwithsierra/utils-legato-mqtt) which is the MQTT client
 allowing our device to cloud application (`MQTT` publisher) to communicate.
 
+### Setting up your Google IoT Cloud account
+
+Furthermore, you must follow Google Cloud IoT documentation to setup your gcloud account and create your project, registry, devices and channels.
+You must generate all public/private key pair registered in your Google Cloud IoT project.
+
+
 ## <a name='good2know'>Good to know</a>
 
 Theses are interested links around this usecase:
@@ -90,6 +96,9 @@ single-ended and serial computer bus.
 
 There is a main `myComponent` with the entry point, our main class and some
 utils (`i2c`, `lsm6ds3`) that you can use for others usecase.
+
+> IMPORTANT: the config directory must contain your generated public/private keys generated using openssl for RSA key pair or Elliptic Curve key pair and registered in you Google Cloud IoT during the last step -- cf. the chapter prerequisites. 
+
 
 ## <a name='application-definition-file'>Application definition file</a>
 
