@@ -1,4 +1,4 @@
-# SWS :: MangOH to AirVantage
+# SWS :: MangOH to Google Cloud IoT
 
 [![](https://img.shields.io/badge/legato-17.06-blue.svg)](http://legato.io/) [![](https://img.shields.io/badge/mangoh-WP8548-green.svg)](http://legato.io/)
 
