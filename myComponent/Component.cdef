@@ -1,0 +1,68 @@
+// Component.adef ---
+//
+// Author: Majdi Toumi
+// Created: Wed Feb  8 16:58:58 2017 (+0100)
+// Last-Updated: Thu Feb 16 14:24:05 2017 (+0100)
+//           By: Majdi Toumi
+// Version: 1.0.0
+//
+// THE AIEOWTEA-WARE LICENSE
+// Majdi Toumi wrote this file
+// As long you retain this notice, you can do whatever
+// you want with this stuff. If we meet some day, and you think
+// this stuff is worth it, you can buy me a cup of tea in return.
+//
+// Let's Rock!
+//
+
+// things the component needs from its runtime environment.
+requires:
+{
+  // IPC APIs used by this component.
+  api:
+  {
+    // *.{h,c} files are created by building tools
+    mqtt.api [manual-start]
+
+    // allow WAN IP interface
+    le_data.api [manual-start]
+
+    // allow check on IP address and connection state
+    modemServices/le_mdc.api
+  }
+}
+
+sources:
+{
+  utils/i2c/i2c.cc
+  utils/lsm6ds3/lsm6ds3.cc
+  sensorToGoogleCloud.cc
+  main.cc
+}
+
+// collections of information that can be exchanged with cloud services
+assets:
+{
+  office =
+  {
+    variables:
+    {
+      float temperature
+      float gyroscope_x
+      float gyroscope_y
+      float gyroscope_z
+    }
+  }
+}
+
+// command-line arguments to pass to the c++ compiler
+cxxflags:
+{
+  -std=c++11
+}
+
+// linker flags
+ldflags:
+{
+  -ljansson -ljwt -lcrypto -L /usr/local/lib
+}

@@ -1,0 +1,142 @@
+// lsm6ds3_registers.hh ---
+//
+// Author: Majdi Toumi
+// Created: Sun Feb 12 22:01:55 2017 (+0100)
+// Last-Updated: Sun Feb 12 22:08:21 2017 (+0100)
+//           By: Majdi Toumi
+// Version: 1.0.0
+//
+// THE TEA-WARE LICENSE:
+// Majdi Toumi wrote this file
+// As long you retain this notice, you can do whatever
+// you want with this stuff. If we meet some day, and you think
+// this stuff is worth it, you can buy me a cup of tea in return.
+//
+// Let's Rock!
+//
+
+#ifndef __LSM6DS3_REGISTERS_HH__
+# define __LSM6DS3_REGISTERS_HH__
+
+// Device Register
+
+#define LSM6DS3_ACC_GYRO_TEST_PAGE			0x00
+#define LSM6DS3_ACC_GYRO_RAM_ACCESS			0x01
+#define LSM6DS3_ACC_GYRO_SENSOR_SYNC_TIME		0x04
+#define LSM6DS3_ACC_GYRO_SENSOR_SYNC_EN			0x05
+#define LSM6DS3_ACC_GYRO_FIFO_CTRL1			0x06
+#define LSM6DS3_ACC_GYRO_FIFO_CTRL2			0x07
+#define LSM6DS3_ACC_GYRO_FIFO_CTRL3			0x08
+#define LSM6DS3_ACC_GYRO_FIFO_CTRL4			0x09
+#define LSM6DS3_ACC_GYRO_FIFO_CTRL5			0x0A
+#define LSM6DS3_ACC_GYRO_ORIENT_CFG_G			0x0B
+#define LSM6DS3_ACC_GYRO_REFERENCE_G			0x0C
+#define LSM6DS3_ACC_GYRO_INT1_CTRL			0x0D
+#define LSM6DS3_ACC_GYRO_INT2_CTRL			0x0E
+#define LSM6DS3_ACC_GYRO_WHO_AM_I_REG			0x0F
+#define LSM6DS3_ACC_GYRO_CTRL1_XL  			0x10
+#define LSM6DS3_ACC_GYRO_CTRL2_G  			0x11
+#define LSM6DS3_ACC_GYRO_CTRL3_C  			0x12
+#define LSM6DS3_ACC_GYRO_CTRL4_C  			0x13
+#define LSM6DS3_ACC_GYRO_CTRL5_C  			0x14
+#define LSM6DS3_ACC_GYRO_CTRL6_G  			0x15
+#define LSM6DS3_ACC_GYRO_CTRL7_G  			0x16
+#define LSM6DS3_ACC_GYRO_CTRL8_XL  			0x17
+#define LSM6DS3_ACC_GYRO_CTRL9_XL  			0x18
+#define LSM6DS3_ACC_GYRO_CTRL10_C  			0x19
+#define LSM6DS3_ACC_GYRO_MASTER_CONFIG  		0x1A
+#define LSM6DS3_ACC_GYRO_WAKE_UP_SRC  			0x1B
+#define LSM6DS3_ACC_GYRO_TAP_SRC  			0x1C
+#define LSM6DS3_ACC_GYRO_D6D_SRC  			0x1D
+#define LSM6DS3_ACC_GYRO_STATUS_REG  			0x1E
+#define LSM6DS3_ACC_GYRO_OUT_TEMP_L  			0x20
+#define LSM6DS3_ACC_GYRO_OUT_TEMP_H  			0x21
+#define LSM6DS3_ACC_GYRO_OUTX_L_G  			0x22
+#define LSM6DS3_ACC_GYRO_OUTX_H_G  			0x23
+#define LSM6DS3_ACC_GYRO_OUTY_L_G  			0x24
+#define LSM6DS3_ACC_GYRO_OUTY_H_G  			0x25
+#define LSM6DS3_ACC_GYRO_OUTZ_L_G  			0x26
+#define LSM6DS3_ACC_GYRO_OUTZ_H_G  			0x27
+#define LSM6DS3_ACC_GYRO_OUTX_L_XL  			0x28
+#define LSM6DS3_ACC_GYRO_OUTX_H_XL  			0x29
+#define LSM6DS3_ACC_GYRO_OUTY_L_XL  			0x2A
+#define LSM6DS3_ACC_GYRO_OUTY_H_XL  			0x2B
+#define LSM6DS3_ACC_GYRO_OUTZ_L_XL  			0x2C
+#define LSM6DS3_ACC_GYRO_OUTZ_H_XL  			0x2D
+#define LSM6DS3_ACC_GYRO_SENSORHUB1_REG  		0x2E
+#define LSM6DS3_ACC_GYRO_SENSORHUB2_REG  		0x2F
+#define LSM6DS3_ACC_GYRO_SENSORHUB3_REG  		0x30
+#define LSM6DS3_ACC_GYRO_SENSORHUB4_REG  		0x31
+#define LSM6DS3_ACC_GYRO_SENSORHUB5_REG  		0x32
+#define LSM6DS3_ACC_GYRO_SENSORHUB6_REG  		0x33
+#define LSM6DS3_ACC_GYRO_SENSORHUB7_REG  		0x34
+#define LSM6DS3_ACC_GYRO_SENSORHUB8_REG  		0x35
+#define LSM6DS3_ACC_GYRO_SENSORHUB9_REG  		0x36
+#define LSM6DS3_ACC_GYRO_SENSORHUB10_REG  		0x37
+#define LSM6DS3_ACC_GYRO_SENSORHUB11_REG  		0x38
+#define LSM6DS3_ACC_GYRO_SENSORHUB12_REG  		0x39
+#define LSM6DS3_ACC_GYRO_FIFO_STATUS1  			0x3A
+#define LSM6DS3_ACC_GYRO_FIFO_STATUS2  			0x3B
+#define LSM6DS3_ACC_GYRO_FIFO_STATUS3  			0x3C
+#define LSM6DS3_ACC_GYRO_FIFO_STATUS4  			0x3D
+#define LSM6DS3_ACC_GYRO_FIFO_DATA_OUT_L  		0x3E
+#define LSM6DS3_ACC_GYRO_FIFO_DATA_OUT_H  		0x3F
+#define LSM6DS3_ACC_GYRO_TIMESTAMP0_REG  		0x40
+#define LSM6DS3_ACC_GYRO_TIMESTAMP1_REG  		0x41
+#define LSM6DS3_ACC_GYRO_TIMESTAMP2_REG  		0x42
+#define LSM6DS3_ACC_GYRO_STEP_COUNTER_L  		0x4B
+#define LSM6DS3_ACC_GYRO_STEP_COUNTER_H  		0x4C
+#define LSM6DS3_ACC_GYRO_FUNC_SRC  			0x53
+#define LSM6DS3_ACC_GYRO_TAP_CFG1  			0x58
+#define LSM6DS3_ACC_GYRO_TAP_THS_6D  			0x59
+#define LSM6DS3_ACC_GYRO_INT_DUR2  			0x5A
+#define LSM6DS3_ACC_GYRO_WAKE_UP_THS  			0x5B
+#define LSM6DS3_ACC_GYRO_WAKE_UP_DUR  			0x5C
+#define LSM6DS3_ACC_GYRO_FREE_FALL  			0x5D
+#define LSM6DS3_ACC_GYRO_MD1_CFG  			0x5E
+#define LSM6DS3_ACC_GYRO_MD2_CFG  			0x5F
+
+// Access Device RAM
+#define LSM6DS3_ACC_GYRO_ADDR0_TO_RW_RAM		0x62
+#define LSM6DS3_ACC_GYRO_ADDR1_TO_RW_RAM		0x63
+#define LSM6DS3_ACC_GYRO_DATA_TO_WR_RAM			0x64
+#define LSM6DS3_ACC_GYRO_DATA_RD_FROM_RAM		0x65
+
+#define LSM6DS3_ACC_GYRO_RAM_SIZE			4096
+
+// Embedded functions register mapping
+#define LSM6DS3_ACC_GYRO_SLV0_ADD                     	0x02
+#define LSM6DS3_ACC_GYRO_SLV0_SUBADD                  	0x03
+#define LSM6DS3_ACC_GYRO_SLAVE0_CONFIG                	0x04
+#define LSM6DS3_ACC_GYRO_SLV1_ADD                     	0x05
+#define LSM6DS3_ACC_GYRO_SLV1_SUBADD                  	0x06
+#define LSM6DS3_ACC_GYRO_SLAVE1_CONFIG                	0x07
+#define LSM6DS3_ACC_GYRO_SLV2_ADD                     	0x08
+#define LSM6DS3_ACC_GYRO_SLV2_SUBADD                  	0x09
+#define LSM6DS3_ACC_GYRO_SLAVE2_CONFIG                	0x0A
+#define LSM6DS3_ACC_GYRO_SLV3_ADD                     	0x0B
+#define LSM6DS3_ACC_GYRO_SLV3_SUBADD                  	0x0C
+#define LSM6DS3_ACC_GYRO_SLAVE3_CONFIG                	0x0D
+#define LSM6DS3_ACC_GYRO_DATAWRITE_SRC_MODE_SUB_SLV0	0x0E
+#define LSM6DS3_ACC_GYRO_CONFIG_PEDO_THS_MIN          	0x0F
+#define LSM6DS3_ACC_GYRO_CONFIG_TILT_IIR              	0x10
+#define LSM6DS3_ACC_GYRO_CONFIG_TILT_ACOS             	0x11
+#define LSM6DS3_ACC_GYRO_CONFIG_TILT_WTIME            	0x12
+#define LSM6DS3_ACC_GYRO_SM_STEP_THS                  	0x13
+#define LSM6DS3_ACC_GYRO_MAG_SI_XX                    	0x24
+#define LSM6DS3_ACC_GYRO_MAG_SI_XY                    	0x25
+#define LSM6DS3_ACC_GYRO_MAG_SI_XZ                    	0x26
+#define LSM6DS3_ACC_GYRO_MAG_SI_YX                    	0x27
+#define LSM6DS3_ACC_GYRO_MAG_SI_YY                    	0x28
+#define LSM6DS3_ACC_GYRO_MAG_SI_YZ                    	0x29
+#define LSM6DS3_ACC_GYRO_MAG_SI_ZX                    	0x2A
+#define LSM6DS3_ACC_GYRO_MAG_SI_ZY                    	0x2B
+#define LSM6DS3_ACC_GYRO_MAG_SI_ZZ                    	0x2C
+#define LSM6DS3_ACC_GYRO_MAG_OFFX_L                   	0x2D
+#define LSM6DS3_ACC_GYRO_MAG_OFFX_H                   	0x2E
+#define LSM6DS3_ACC_GYRO_MAG_OFFY_L                   	0x2F
+#define LSM6DS3_ACC_GYRO_MAG_OFFY_H                   	0x30
+#define LSM6DS3_ACC_GYRO_MAG_OFFZ_L                   	0x31
+#define LSM6DS3_ACC_GYRO_MAG_OFFZ_H                   	0x32
+
+#endif // !__LSM6DS3_REGISTERS_HH__
