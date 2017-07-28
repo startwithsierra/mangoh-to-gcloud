@@ -30,9 +30,9 @@ allowing our device to cloud application (`MQTT` publisher) to communicate.
 
 ### Setting up your Google IoT Cloud account
 
-Furthermore, you must follow Google Cloud IoT documentation to setup your gcloud account and create your project, registry, devices and channels.
-You must generate all public/private key pair registered in your Google Cloud IoT project.
-
+You must follow Google Cloud IoT [documentation](https://cloud.google.com/iot/docs/device_manager_guide?authuser=1)
+to setup your gcloud account and create your project, registry, devices and channels.<br />
+You must also generate all public/private key pair registered in your Google Cloud IoT project.
 
 ## <a name='good2know'>Good to know</a>
 
@@ -97,7 +97,7 @@ single-ended and serial computer bus.
 There is a main `myComponent` with the entry point, our main class and some
 utils (`i2c`, `lsm6ds3`) that you can use for others usecase.
 
-> IMPORTANT: the config directory must contain your generated public/private keys generated using openssl for RSA key pair or Elliptic Curve key pair and registered in you Google Cloud IoT during the last step -- cf. the chapter prerequisites. 
+> IMPORTANT: the config directory must contain your generated public/private keys generated using openssl for RSA key pair or Elliptic Curve key pair and registered in you Google Cloud IoT during the last step -- cf. the chapter prerequisites.
 
 
 ## <a name='application-definition-file'>Application definition file</a>
@@ -263,7 +263,40 @@ DeviceToCloud::DeviceToCloud() : _is_mqtt_connected(false)
 }
 ```
 
+- Generate Json Web Token for authentication:
+
+```cpp
+void SensorToGoogleCloud::generateJWT()
+{
+    // Reading the private key file
+    std::ifstream ifs("config/rsa_private.pem");
+    std::string key((std::istreambuf_iterator<char>(ifs)),
+                        (std::istreambuf_iterator<char>()));
+
+
+    // Validate private key with RS256 encryption
+    RS256Validator signer(key.c_str());
+
+    // About expiration time
+    std::time_t iat = std::time(nullptr);
+
+    std::tm expiration_date = *std::localtime(&iat);
+    expiration_date.tm_year += 1;
+
+    std::time_t exp = mktime(&expiration_date);
+
+    // Creating the json payload that expires 1 year from today
+    json_ptr json(json_pack("iat", iat, "exp", exp, "aud", GOOGLE_CLOUD_PROJECT_ID));
+
+    // Let's encode the token to a char[]
+    _jwt = JWT::Encode(&signer, json.get());
+
+    LE_INFO("GENERATED TOKEN: %s", _jwt.get());
+}
+```
+
 - Configure and connecting MQTT publisher is pretty simple
+
 ```cpp
 void DeviceToCloud::configureMQTT()
 {
@@ -466,22 +499,9 @@ Jul 25 17:07:57 swi-mdm9x15 user.info Legato:  INFO | mqttService[6918]/mqttServ
 Jul 25 17:07:57 swi-mdm9x15 user.info Legato:  INFO | mqttService[6918]/mqttServiceComponent T=main | mqttService.c mqttService_SendMessageJson() 83 | topic('359377060005641/messages/json') payload('{"sensor.temperature":24.875000,"sensor.ax":0.017080,"sensor.ay":-0.025376,"se
 ```
 
-#### AirVantage
+#### Result in Google Cloud console
 
-Connect to the **AirVantage** website to configure and monitor your mangOH boards
-
-- Manage your boards
-
-![](https://dl.dropboxusercontent.com/u/28401099/mangoh.rocks/hands-on-session/006-screen-4.png)
-
-- Get more information from a specific board
-
-![](https://dl.dropboxusercontent.com/u/28401099/mangoh.rocks/hands-on-session/006-screen-5.png)
-
-- Visualize your application data in real-time
-
-![](https://dl.dropboxusercontent.com/u/28401099/mangoh.rocks/hands-on-session/006-screen-6.png)
-
+in progress
 
 ### Next
 
