@@ -1,13 +1,14 @@
 # SWS :: MangOH to Google Cloud IoT
 
-[![](https://img.shields.io/badge/legato-17.06-blue.svg)](http://legato.io/) [![](https://img.shields.io/badge/mangoh-WP8548-green.svg)](http://legato.io/)
+[![](https://img.shields.io/badge/legato-17.06-blue.svg)](http://legato.io/) [![](https://img.shields.io/badge/mangoh-green-green.svg)](http://mangoh.io/)
+[![](https://img.shields.io/badge/mangoh-red-red.svg)](http://mangoh.io/)
 
 > :book: This application is about building a **device to cloud** application with **Google Cloud IoT**
 
 ## <a name='TOC'>Summary</a>
 
 - [Overview](#overview)
-- [Tutorial](#tutorial)
+- [Sources code](#sources)
 - [Credits](#credits)
 
 ## <a name='note'>Overview</a>
@@ -27,9 +28,11 @@ We'll build, install and run the application with the open source Linux-based em
 [here](https://github.com/startwithsierra/utils-legato-mqtt) which is the MQTT client
 allowing our device to cloud application (`MQTT` publisher) to communicate.
 
-## <a name='tutorial'>Tutorial</a>
+## <a name='sources'>Sources code</a>
 
-The following tutorial [**here**](./mangoh-to-gcloud.pdf) help you setup, develop and build the application.
+Select a specific board to access to the right source code:
+- [**MangOH Green**](./https://github.com/startwithsierra/mangoh-to-gcloud/tree/green)
+- [**MangOH Red**](./https://github.com/startwithsierra/mangoh-to-gcloud/tree/red)
 
 ### Credits
 
