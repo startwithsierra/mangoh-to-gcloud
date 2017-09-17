@@ -30,12 +30,19 @@ requires:
     // allow check on IP address and connection state
     modemServices/le_mdc.api
   }
+
+  file:
+  {
+      /sys/devices/i2c-0/0-0068/iio:device0/in_accel_x_raw    /sys/devices/i2c-0/0-0068/iio:device0/
+      /sys/devices/i2c-0/0-0068/iio:device0/in_accel_y_raw    /sys/devices/i2c-0/0-0068/iio:device0/
+      /sys/devices/i2c-0/0-0068/iio:device0/in_accel_z_raw    /sys/devices/i2c-0/0-0068/iio:device0/
+      /sys/devices/i2c-0/0-0076/iio:device1/in_temp_input     /sys/devices/i2c-0/0-0076/iio:device1/
+  }
 }
 
 sources:
 {
-  utils/i2c/i2c.cc
-  utils/lsm6ds3/lsm6ds3.cc
+  utils/nativeSensor.cc
   sensorToGoogleCloud.cc
   main.cc
 }

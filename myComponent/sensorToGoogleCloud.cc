@@ -111,9 +111,6 @@ void SensorToGoogleCloud::configureMQTT()
 
 void SensorToGoogleCloud::start()
 {
-    // calling lsm6ds3 configuration section
-    _lsm6ds3.begin();
-
     // JWT generation
     this->generateJWT();
 
@@ -158,12 +155,10 @@ void SensorToGoogleCloud::setMqttSession(bool v)
 void SensorToGoogleCloud::fetch()
 {
     // get last temperature from LSM6DS3
-    _last_temperature = _lsm6ds3.readTemperatureByUnity('C');
+     _ns.readTemperature(&_last_temperature);
 
     // same for X->Z gyroscope axis
-    _last_gyroscope.Ax = _lsm6ds3.readAccelerationByAxis('X');
-    _last_gyroscope.Ay = _lsm6ds3.readAccelerationByAxis('Y');
-    _last_gyroscope.Az = _lsm6ds3.readAccelerationByAxis('Z');
+    _ns.readGyro(&_last_gyroscope.Ax, &_last_gyroscope.Ay, &_last_gyroscope.Az);
 }
 
 void SensorToGoogleCloud::dump()

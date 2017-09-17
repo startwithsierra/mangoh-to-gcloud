@@ -22,7 +22,8 @@
 
 #include "legato.h"
 #include "interfaces.h"
-#include "lsm6ds3.hh"
+
+#include "nativeSensor.hh"
 
 # define GOOGLE_CLOUD_PROJECT_ID    "start-with-sierra"
 
@@ -146,20 +147,20 @@ private:
   // our main instance application
   static SensorToGoogleCloud* _instance;
 
-  // native sensors module (3D digital accelerometer, 3D digital gyroscope, etc.)
-  Lsm6ds3 _lsm6ds3;
+  // native sensors module
+  NativeSensor _ns;
 
   // timer reference object
   le_timer_Ref_t _timer_ref;
 
   // last captured temperature (in °Celsius)
-  float	_last_temperature;
+  double	_last_temperature;
 
   // last captured gyroscope data
   struct gyroscope {
-    float Ax;
-    float Ay;
-    float Az;
+    double Ax;
+    double Ay;
+    double Az;
   } _last_gyroscope;
 
 
