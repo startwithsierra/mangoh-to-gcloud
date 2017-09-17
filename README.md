@@ -1,6 +1,7 @@
-# SWS :: MangOH to Google Cloud IoT
+# SWS :: MangOH Green to Google Cloud IoT
 
-[![](https://img.shields.io/badge/legato-17.06-blue.svg)](http://legato.io/) [![](https://img.shields.io/badge/mangoh-WP8548-green.svg)](http://legato.io/)
+[![](https://img.shields.io/badge/legato-17.06-blue.svg)](http://legato.io/) [![](https://img.shields.io/badge/mangoh-green-green.svg)](http://mangoh.io/)
+[![](https://img.shields.io/badge/module-WP8548-lightgrey.svg)](https://source.sierrawireless.com/devices/wp-series/wp8548/)
 
 > :book: This application is about building a **device to cloud** application with **Google Cloud IoT**
 
