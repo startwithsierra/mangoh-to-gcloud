@@ -19,7 +19,7 @@
 #include <fstream>
 #include <string>
 #include <ctime>
-// #include "jwt/jwt_all.h"
+#include "jwt/jwt_all.h"
 
 #include "legato.h"
 #include "interfaces.h"
