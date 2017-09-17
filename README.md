@@ -31,8 +31,8 @@ allowing our device to cloud application (`MQTT` publisher) to communicate.
 ## <a name='sources'>Sources code</a>
 
 Select a specific board to access to the right source code:
-- [**MangOH Green**](./https://github.com/startwithsierra/mangoh-to-gcloud/tree/green)
-- [**MangOH Red**](./https://github.com/startwithsierra/mangoh-to-gcloud/tree/red)
+- [**MangOH Green**](https://github.com/startwithsierra/mangoh-to-gcloud/tree/green)
+- [**MangOH Red**](https://github.com/startwithsierra/mangoh-to-gcloud/tree/red)
 
 ### Credits
 
