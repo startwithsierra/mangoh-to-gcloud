@@ -14,7 +14,7 @@
 ## <a name='note'>Overview</a>
 
 This application illustrates how to send data to a **Google Cloud IoT** platform from a **Legato**
-application running on a **AirPrime WP** module on **mangOH Green** or **mangOH Red** open source
+application running on a **AirPrime WP** module on **mangOH Red** open source
 hardware platforms.<br />
 
 The tutorial details the source files of the Legato application and shows how to build, install and
