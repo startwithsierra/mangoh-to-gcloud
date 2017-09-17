@@ -27,9 +27,8 @@ all	: $(TARGETS)
 
 $(TARGETS):
 	mkapp -v -t $@ \
-	-i sensorToGoogleCloudComponent/utils/i2c \
-	-i sensorToGoogleCloudComponent/utils/lsm6ds3 \
-	sensorToGoogleCloud.adef
+	-i myComponent/utils \
+	mangohToGCloud.adef
 
 clean:
 	rm -rf _build_* *.update

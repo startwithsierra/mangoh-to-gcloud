@@ -72,6 +72,11 @@ public:
    * readTemperature(&temp);
    */
   le_result_t readTemperature(double *reading);
+
+private:
+  le_result_t readIntFromFile(const char *filePath, int *value);
+  le_result_t readDoubleFromFile(const char *filePath, double *value);
+
 };
 
 #endif // !__NATIVE_SENSOR_HH__

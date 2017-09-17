@@ -37,16 +37,16 @@ le_result_t NativeSensor::readAccelerometer(double *xAcc, double *yAcc, double *
   char path[256];
 
   double scaling = 0.0;
-  int pathLen = snprintf(path, sizeof(path), FormatStr, AccType, CompScale);
+  unsigned int pathLen = snprintf(path, sizeof(path), FormatStr, AccType, CompScale);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, &scaling);
+  r = this->readDoubleFromFile(path, &scaling);
   if (r != LE_OK) {
     return r;
   }
 
   pathLen = snprintf(path, sizeof(path), FormatStr, AccType, CompX);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, xAcc);
+  r = this->readDoubleFromFile(path, xAcc);
   if (r != LE_OK) {
     return r;
   }
@@ -54,7 +54,7 @@ le_result_t NativeSensor::readAccelerometer(double *xAcc, double *yAcc, double *
 
   pathLen = snprintf(path, sizeof(path), FormatStr, AccType, CompY);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, yAcc);
+  r = this->readDoubleFromFile(path, yAcc);
   if (r != LE_OK) {
     return r;
   }
@@ -62,7 +62,7 @@ le_result_t NativeSensor::readAccelerometer(double *xAcc, double *yAcc, double *
 
   pathLen = snprintf(path, sizeof(path), FormatStr, AccType, CompZ);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, zAcc);
+  r = this->readDoubleFromFile(path, zAcc);
   *zAcc *= scaling;
 
   return r;
@@ -74,16 +74,16 @@ le_result_t NativeSensor::readGyro(double *x, double *y, double *z)
   char path[256];
 
   double scaling = 0.0;
-  int pathLen = snprintf(path, sizeof(path), FormatStr, GyroType, CompScale);
+  unsigned int pathLen = snprintf(path, sizeof(path), FormatStr, GyroType, CompScale);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, &scaling);
+  r = this->readDoubleFromFile(path, &scaling);
   if (r != LE_OK) {
     return r;
   }
 
   pathLen = snprintf(path, sizeof(path), FormatStr, GyroType, CompX);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, x);
+  r = this->readDoubleFromFile(path, x);
   if (r != LE_OK) {
     return r;
   }
@@ -91,7 +91,7 @@ le_result_t NativeSensor::readGyro(double *x, double *y, double *z)
 
   pathLen = snprintf(path, sizeof(path), FormatStr, GyroType, CompY);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, y);
+  r = this->readDoubleFromFile(path, y);
   if (r != LE_OK) {
     return r;
   }
@@ -99,7 +99,7 @@ le_result_t NativeSensor::readGyro(double *x, double *y, double *z)
 
   pathLen = snprintf(path, sizeof(path), FormatStr, GyroType, CompZ);
   LE_ASSERT(pathLen < sizeof(path));
-  r = ReadDoubleFromFile(path, z);
+  r = this->readDoubleFromFile(path, z);
   *z *= scaling;
 
   return r;
@@ -108,7 +108,7 @@ le_result_t NativeSensor::readGyro(double *x, double *y, double *z)
 le_result_t NativeSensor::readTemperature(double *reading)
 {
   int temp;
-  le_result_t r = ReadIntFromFile(TemperatureFile, &temp);
+  le_result_t r = this->readIntFromFile(TemperatureFile, &temp);
   if (r != LE_OK) {
     return r;
   }
@@ -117,4 +117,42 @@ le_result_t NativeSensor::readTemperature(double *reading)
   // which is called by bmp280_read_temp()
   *reading = ((double)temp) / 1000.0;
   return LE_OK;
+}
+
+le_result_t NativeSensor::readIntFromFile(const char *filePath, int *value)
+{
+    le_result_t r = LE_OK;
+    FILE *f = fopen(filePath, "r");
+    if (f == NULL) {
+      LE_WARN("Couldn't open '%s' - %m", filePath);
+      r = LE_IO_ERROR;
+      return r;
+    }
+
+    int numScanned = fscanf(f, "%d", value);
+    if (numScanned != 1) {
+      r = LE_FORMAT_ERROR;
+    }
+
+    fclose(f);
+    return r;
+}
+
+le_result_t NativeSensor::readDoubleFromFile(const char *filePath, double *value)
+{
+    le_result_t r = LE_OK;
+    FILE *f = fopen(filePath, "r");
+    if (f == NULL) {
+      LE_WARN("Couldn't open '%s' - %m", filePath);
+      r = LE_IO_ERROR;
+      return r;
+    }
+
+    int numScanned = fscanf(f, "%lf", value);
+    if (numScanned != 1){
+      r = LE_FORMAT_ERROR;
+    }
+
+    fclose(f);
+    return r;
 }
