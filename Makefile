@@ -6,7 +6,7 @@
 #           By: Majdi Toumi
 # Version: 1.0.0
 #
-# THE AIEOWTEA-WARE LICENSE
+# THE AIOWTEA-WARE LICENSE
 # Majdi Toumi wrote this file
 # As long you retain this notice, you can do whatever
 # you want with this stuff. If we meet some day, and you think
@@ -27,9 +27,9 @@ all	: $(TARGETS)
 
 $(TARGETS):
 	mkapp -v -t $@ \
-	-i sensorToGoogleCloudComponent/utils/i2c \
-	-i sensorToGoogleCloudComponent/utils/lsm6ds3 \
-	sensorToGoogleCloud.adef
+	-i myComponent/utils/i2c \
+	-i myComponent/utils/lsm6ds3 \
+	mangohToGCloud.adef
 
 clean:
 	rm -rf _build_* *.update
