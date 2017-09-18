@@ -30,7 +30,7 @@ allowing our device to cloud application (`MQTT` publisher) to communicate.
 
 ## <a name='tutorial'>Tutorial</a>
 
-The following tutorial [**here**](./mangoh-to-gcloud.pdf) help you setup, develop and build the application.
+The following tutorial [**here**](./mangoh-green-to-gcloud.pdf) help you setup, develop and build the application.
 
 ### Credits
 
