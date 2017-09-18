@@ -53,21 +53,9 @@ processes:
 
 bindings:
 {
-  // we want to use mqtt services (from an external app)
-  mangohToGCloud.myComponent.mqtt -> mqttService.mqtt
-
   // we want to use the radio WAN app so that we can start an IP session over WAN (3G)
   mangohToGCloud.myComponent.le_data -> dataConnectionService.le_data
 
   // we want to use le_mdc because we need to know if the WAN interface is up
   mangohToGCloud.myComponent.le_mdc -> modemService.le_mdc
-}
-
-requires:
-{
-  device:
-  {
-    // allow read + write access to I2C port.
-    [rw]    /dev/i2c-0   /dev/i2c-0
-  }
 }
